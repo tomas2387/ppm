@@ -1,2 +1,13 @@
-<h1>Player#index</h1>
-<p>Find me in app/views/player/index.html.erb</p>
+<h1>All players</h1>
+<% if @players.size == 0  %>
+    <div>There are no players</div>
+<% else %>
+    <%= @players.size %> Player's names:
+    <% @players.each do |p| %>
+        <div>
+        <span>
+            <%= link_to p.name, p %>
+        </span>
+        </div>
+    <% end %>
+<% end %>

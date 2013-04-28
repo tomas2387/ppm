@@ -2,12 +2,19 @@
 <% if @players.size == 0  %>
     <div>There are no players</div>
 <% else %>
-    <%= @players.size %> Player's names:
-    <% @players.each do |p| %>
-        <div>
-        <span>
-            <%= link_to p.name, p %>
-        </span>
-        </div>
-    <% end %>
+
+    <div class="well span4">
+        <%= @players.size %> Players:
+        <% @players.each do |p| %>
+            <div>
+             <span><%= link_to p.name, p %></span>
+            </div>
+        <% end %>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="offset1 navbar">
+      <%= link_to 'Create a new player', '/player/new', :class => "btn" %>
+      <!--<span class="btn">New match</span>-->
+    </div>
 <% end %>

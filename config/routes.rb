@@ -51,6 +51,10 @@ Ppm::Application.routes.draw do
   root :to => "player#index"
 
   resources :player
+  resources :game
+  match 'game/addHit/:idPlayer/:id' => 'game#addHit'
+  match 'game/addMiss/:idPlayer/:id' => 'game#addMiss'
+
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.

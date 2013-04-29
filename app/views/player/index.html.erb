@@ -1,3 +1,4 @@
+<div class="span5">
 <h1>All players</h1>
 <% if @players.size == 0  %>
     <div>There are no players</div>
@@ -15,7 +16,27 @@
 
     <div class="navbar">
       <%= link_to 'Create a new player', '/player/new', :class => "btn" %>
-      <!--<span class="btn">New match</span>-->
+    </div>
+<% end %>
+</div>
+<div class="span5">
+<h1>All games</h1>
+<% if @games.size == 0  %>
+    <div>There are no games</div>
+<% else %>
+    <div class="well">
+        <%= @games.size %> Games:
+        <% @games.each do |g| %>
+            <div>
+             <span><%= link_to g.local_player.name+' vs '+g.away_player.name, g %></span>
+            </div>
+        <% end %>
     </div>
 
+    <div class="clearfix"></div>
+
+    <div class="navbar">
+      <%= link_to 'Create a new game', '/game/new', :class => "btn" %>
+    </div>
 <% end %>
+</div>

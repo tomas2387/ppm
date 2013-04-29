@@ -46,5 +46,9 @@ class GameController < ApplicationController
   end
 
   def finish
+    @game.finished = true
+    @game.save
+
+    redirect_to('/')
   end
 end

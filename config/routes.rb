@@ -54,6 +54,7 @@ Ppm::Application.routes.draw do
   resources :game
   match 'game/addHit/:idPlayer/:id' => 'game#addHit'
   match 'game/addMiss/:idPlayer/:id' => 'game#addMiss'
+  match 'game/finish/:id' => 'game#finish'
 
   # See how all your routes lay out with "rake routes"
 

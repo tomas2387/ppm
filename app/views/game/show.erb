@@ -1,16 +1,24 @@
 <h1><%= @game.local_player.name %> vs <%= @game.away_player.name %></h1>
 <h1 class="offset1"><%= @game.local + @game.away_miss %> : <%= @game.away + @game.local_miss %></h1>
 
-<div class="span1 well">
-  <span><%= @game.local_player.name %></span>
-  <%= button_to @game.local_player.name+' hit', { :action => "addHit", :idPlayer => @game.local_player.id, :id => @game.id }  %>
-  <%= button_to @game.local_player.name+' miss', { :action => "addMiss", :idPlayer => @game.local_player.id, :id => @game.id } %>
-</div>
+<% if @game.finished? %>
+    This game was played on <%= @game.updated_at %>
+    <div><%= link_to 'Back to all List', '/' %></div>
 
-<div class="span1 well">
-  <span><%= @game.away_player.name %></span>
-  <%= button_to @game.away_player.name+' hit', { :action => "addHit", :idPlayer => @game.away_player.id, :id => @game.id } %>
-  <%= button_to @game.away_player.name+' miss', { :action => "addMiss", :idPlayer => @game.away_player.id, :id => @game.id } %>
-</div>
+<% else %>
+    <div class="span1 well">
+      <span><%= @game.local_player.name %></span>
+      <%= button_to @game.local_player.name+' hit', { :action => "addHit", :idPlayer => @game.local_player.id, :id => @game.id }  %>
+      <%= button_to @game.local_player.name+' miss', { :action => "addMiss", :idPlayer => @game.local_player.id, :id => @game.id } %>
+    </div>
 
-<div class="clearfix"></div>
+    <div class="span1 well">
+      <span><%= @game.away_player.name %></span>
+      <%= button_to @game.away_player.name+' hit', { :action => "addHit", :idPlayer => @game.away_player.id, :id => @game.id } %>
+      <%= button_to @game.away_player.name+' miss', { :action => "addMiss", :idPlayer => @game.away_player.id, :id => @game.id } %>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <%= button_to 'Finish game', { :action => "finish", :id => @game.id } %>
+<% end %>

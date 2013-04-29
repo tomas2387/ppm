@@ -7,21 +7,27 @@
 <h3><%= @player.local_games.size %> Local games</h3>
 <table class="table table-bordered">
   <thead>
-  <tr class="controls-row">
-    <td>ID</td><td>Points won</td>
+  <tr>
+    <th>ID</th>
+    <th>Points won</th>
+    <th>Time</th>
   </tr>
   </thead>
-  <%= content_tag_for(:tr, @player.local_games, :class=>"controls-row") do |game| %>
-      <td><%= game.id %></td><td> <%= game.local %> points</td>
+  <%= content_tag_for(:tr, @player.local_games) do |game| %>
+      <td><%= game.id %></td><td> <%= game.local %> points</td><td><%= game.updated_at %></td>
   <% end %>
 </table>
 
 <h3><%= @player.away_games.size %> Away games</h3>
 <table class="table table-bordered">
-  <tr class="controls-row">
-    <td>ID</td><td>Points won</td>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Points won</th>
+    <th>Time</th>
   </tr>
+  </thead>
   <%= content_tag_for(:tr, @player.away_games) do |game| %>
-      <td><%= game.id %></td><td> <%= game.away %> points</td>
+      <td><%= game.id %></td><td> <%= game.away %> points</td><td><%= game.updated_at %></td>
   <% end %>
 </table>

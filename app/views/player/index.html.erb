@@ -1,8 +1,9 @@
-<h1>All players</h1>
+<span class="lead">All players</span><%= link_to 'Create a new player', '/player/new', :class => "btn" %>
 <% if @players.size == 0  %>
     <div>There are no players</div>
 <% else %>
     <div class="well">
+    <div class="container">
         <%= @players.size %> Players:
         <% @players.each do |p| %>
             <div>
@@ -10,19 +11,15 @@
             </div>
         <% end %>
     </div>
-
-    <div class="clearfix"></div>
-
-    <div class="navbar">
-      <%= link_to 'Create a new player', '/player/new', :class => "btn" %>
     </div>
 <% end %>
 
-<h1>All games</h1>
+<span class="lead">All games</span><%= link_to 'Create a new game', '/game/new', :class => "btn" %>
 <% if @games.size == 0  %>
     <div>There are no games</div>
 <% else %>
     <div class="well">
+    <div class="container">
         <%= @games.size %> Games:
         <% @games.each do |g| %>
             <div>
@@ -30,10 +27,5 @@
             </div>
         <% end %>
     </div>
-
-    <div class="clearfix"></div>
-
-    <div class="navbar">
-      <%= link_to 'Create a new game', '/game/new', :class => "btn" %>
     </div>
 <% end %>

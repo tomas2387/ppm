@@ -1,6 +1,7 @@
 class PlayerController < ApplicationController
   def index
     @players = Player.all
+    @games = Game.all
     respond_to do |format|
       format.html
     end

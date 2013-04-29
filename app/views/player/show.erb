@@ -1,2 +1,27 @@
-<%= link_to 'Back to all List', '/' %>
+
+<%= link_to 'Back to all List', '/', :class => "nav-header" %>
+
+
 <h1><%= @player.name %> statistics</h1>
+
+<h3><%= @player.local_games.size %> Local games</h3>
+<table class="table table-bordered">
+  <thead>
+  <tr class="controls-row">
+    <td>ID</td><td>Points won</td>
+  </tr>
+  </thead>
+  <%= content_tag_for(:tr, @player.local_games, :class=>"controls-row") do |game| %>
+      <td><%= game.id %></td><td> <%= game.local %> points</td>
+  <% end %>
+</table>
+
+<h3><%= @player.away_games.size %> Away games</h3>
+<table class="table table-bordered">
+  <tr class="controls-row">
+    <td>ID</td><td>Points won</td>
+  </tr>
+  <%= content_tag_for(:tr, @player.away_games) do |game| %>
+      <td><%= game.id %></td><td> <%= game.away %> points</td>
+  <% end %>
+</table>

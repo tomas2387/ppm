@@ -3,7 +3,7 @@
 
 <% if @game.finished? %>
     This game was played on <%= @game.updated_at %>
-    <div><%= link_to 'Back to all List', '/' %></div>
+    <div><%= link_to 'Back to all List', '/', :class => "nav-header" %></div>
 
 <% else %>
     <div class="span1 well">
